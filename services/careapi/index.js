@@ -7,12 +7,23 @@ const typeDefs = gql`
     name: String
     username: String
   }
+
+  extend type Member @key(fields: "id") {
+    id: ID! @external
+    name: String
+  }
+
   extend type Mutation {
    createClinicalVisit(caseId: ID): ID
   }
 `;
 
 const resolvers = {
+  Member: {
+    name() {
+      return 'CareAPI name';
+    }
+  },
   Product: {
     __resolveReference(object) {
       return {

@@ -21,10 +21,6 @@ const typeDefs = gql`
     dorf: String!
   }
 
-  extend type Query {
-    me: Member
-  }
-
   type Member @key(fields: "id") {
     id: ID!
     name: String
@@ -32,10 +28,14 @@ const typeDefs = gql`
     cases: [CaseType]
   }
 
+  extend type Query {
+    me: Member
+  }
+
   extend type Mutation {
-   createClinicalVisit(caseId: ID): CaseType
-   cancelAppointment(id: ID): ID
-   rescheduleAppointment(id: ID): ID
+    #  createClinicalVisit(caseId: ID): CaseType
+    cancelAppointment(id: ID): ID
+    rescheduleAppointment(id: ID): ID
   }
 `;
 
