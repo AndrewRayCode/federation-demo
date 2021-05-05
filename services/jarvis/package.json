@@ -1,5 +1,5 @@
 {
-  "name": "accounts",
+  "name": "jarvis",
   "scripts": {
     "start": "node index.js"
   },

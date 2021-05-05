@@ -2,12 +2,13 @@ const { ApolloServer, gql } = require("apollo-server");
 const { buildFederatedSchema } = require("@apollo/federation");
 
 const typeDefs = gql`
-  extend type Product @key(fields: "upc") {
-    upc: String! @external
-    weight: Int @external
-    price: Int @external
-    inStock: Boolean
-    shippingEstimate: Int @requires(fields: "price weight")
+  type User @key(fields: "id") {
+    id: ID!
+    name: String
+    username: String
+  }
+  extend type Mutation {
+   createClinicalVisit(caseId: ID): ID
   }
 `;
 

@@ -1,5 +1,5 @@
 {
-  "name": "inventory",
+  "name": "careapi",
   "scripts": {
     "start": "node index.js"
   },
